@@ -19,4 +19,3 @@ export const FeedbackOptions = ({ onClick }) => {
 FeedbackOptions.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-// -----------

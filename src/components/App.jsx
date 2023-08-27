@@ -11,19 +11,21 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleClick = e => {
+  handleClick = option => {
     this.setState(prevState => ({
-      [e.target.name]: prevState[e.target.name] + 1,
+      [option]: prevState[option] + 1,
     }));
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
-    return this.state.good !== 0
-      ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
+    const { good } = this.state;
+    return good !== 0
+      ? Math.round((good / this.countTotalFeedback()) * 100)
       : 0;
   };
 
@@ -33,7 +35,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions onClick={this.handleClick} />
+          <FeedbackOptions options={options} onClick={this.handleClick} />
         </Section>
         <Section title="Statistics">
           {allFeedbacks > 0 ? (

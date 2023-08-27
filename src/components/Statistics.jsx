@@ -9,9 +9,11 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
+      <ul>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+      </ul>
       <p>Total: {total}</p>
       <p>Positive feedback: {positivePercentage}%</p>
     </>

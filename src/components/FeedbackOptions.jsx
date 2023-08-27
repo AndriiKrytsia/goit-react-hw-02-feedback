@@ -1,21 +1,24 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({ onClick }) => {
+export const FeedbackOptions = ({ onClick, options }) => {
   return (
     <>
-      <button name="good" onClick={e => onClick(e)}>
-        Good
-      </button>
-      <button name="neutral" onClick={e => onClick(e)}>
-        Neutral
-      </button>
-      <button name="bad" onClick={e => onClick(e)}>
-        Bad
-      </button>
+      <ul>
+        {options.map(id => {
+          return (
+            <li key={id}>
+              <button type="button" onClick={() => onClick(id)}>
+                {id}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };
 
 FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
 };
